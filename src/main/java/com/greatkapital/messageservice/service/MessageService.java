@@ -18,7 +18,9 @@ import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Objects;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -63,16 +65,16 @@ public class MessageService {
         Optional<Message> messageOptional = messageDetailsDBAdaptor.getMessage(id);
         if (messageOptional.isPresent()) {
             Message message = messageOptional.get();
-            HttpHeaders headers = new HttpHeaders();
-            headers.set("Content-Type", "application/json");
             return ResponseEntity.
                     status(200).
-                    headers(headers).
                     body(GetMessageRequestDto.builder().
                             messageId(message.getId()).
                             encryptedMessage(message.getEncryptedMessage()).build());
         } else {
-            throw new RuntimeException("Message not found");
+            HashMap<String, String> err = new HashMap<>();
+            err.put("error","Message not found");
+            err.put("status", "404");
+            return ResponseEntity.status(404).body(err);
         }
     }
 
