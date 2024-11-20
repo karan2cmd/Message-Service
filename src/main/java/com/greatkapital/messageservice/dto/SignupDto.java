@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Builder
-public class AcceptMessageRequestDto {
-    private String message;
+public class SignupDto {
+    private String userName;
+    private String passward;
+
 }

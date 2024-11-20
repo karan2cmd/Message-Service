@@ -2,9 +2,7 @@ package com.greatkapital.messageservice.service;
 
 import com.greatkapital.messageservice.config.EncrypctionServiceConfiguration;
 import com.greatkapital.messageservice.dao.adaptor.MessageDetailsDBAdaptor;
-import com.greatkapital.messageservice.dto.AcceptMessageRequestDto;
 import com.greatkapital.messageservice.dto.AcceptMessageResponseDto;
-import com.greatkapital.messageservice.dto.GetMessageRequestDto;
 import com.greatkapital.messageservice.model.Message;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +19,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.Optional;
-
+//todo reference
 @Service
 @Slf4j
 public class MessageService {

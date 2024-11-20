@@ -5,7 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
-
+//todo - this is entity for creating table , just for reference
 @Entity
 @Data
 public class Message {
